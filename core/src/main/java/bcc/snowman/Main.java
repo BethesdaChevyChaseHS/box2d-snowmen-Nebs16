@@ -44,8 +44,6 @@ public class Main extends ApplicationAdapter {
         addBorders();
         balls = new ArrayList<>();
 
-        
-
         // Add some balls
         for (int i = 0; i < 10; i++) {   
             addSnowman();
@@ -146,6 +144,14 @@ public class Main extends ApplicationAdapter {
 
         //final snowball
         //ADD THE CODE HERE
+        ballShape.setRadius(.17f);
+        ballShape.setPosition(new Vector2(0, .45f));
+        FixtureDef finalSnowball = new FixtureDef();
+        finalSnowball.shape = ballShape;
+        finalSnowball.density = 1f;
+        finalSnowball.restitution = 0.8f; 
+
+        ball.createFixture(finalSnowball);
 
         ballShape.dispose();
         ball.setLinearVelocity(new Vector2(randomFloat(-2,2), randomFloat(-2,2)));
